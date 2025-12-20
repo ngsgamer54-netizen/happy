@@ -10,77 +10,80 @@
   body {
     margin: 0;
     height: 100vh;
-    background: radial-gradient(circle at top, #1b2a4e, #0b0f1f);
+    background: url("https://images.unsplash.com/photo-1548778052-311f5fa7b5a3?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Poppins", sans-serif;
-    color: #fff;
+    font-family: "Segoe UI", sans-serif;
     overflow: hidden;
   }
 
   .card {
-    background: linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05));
-    backdrop-filter: blur(12px);
-    border-radius: 22px;
-    padding: 40px 32px;
+    width: 380px;
+    background: rgba(15, 20, 45, 0.75);
+    backdrop-filter: blur(14px);
+    border-radius: 26px;
+    padding: 35px 28px 30px;
     text-align: center;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.45);
-    width: 360px;
-    animation: float 4s ease-in-out infinite;
-    z-index: 2;
-  }
-
-  @keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    color: white;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+    position: relative;
   }
 
   .tree {
     width: 120px;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.4));
+    margin-top: -80px;
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
   }
 
   h1 {
+    margin: 15px 0 6px;
     font-size: 30px;
-    margin: 8px 0;
+    font-weight: 600;
+    color: #ffd166;
   }
 
-  h2 {
-    font-size: 17px;
-    font-weight: 400;
+  .subtitle {
+    font-size: 16px;
     opacity: 0.9;
     margin-bottom: 22px;
   }
 
-  button {
-    background: linear-gradient(135deg, #ff4d4d, #ffb703);
+  .btn {
+    background: linear-gradient(135deg, #ff3d3d, #ff9f1c);
     border: none;
-    border-radius: 30px;
-    padding: 14px 30px;
-    font-size: 16px;
+    border-radius: 35px;
+    padding: 15px 28px;
+    font-size: 17px;
     color: white;
     cursor: pointer;
+    box-shadow: 0 15px 30px rgba(255,61,61,0.5);
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 10px 25px rgba(255,77,77,0.45);
   }
 
-  button:hover {
-    transform: scale(1.08);
-    box-shadow: 0 15px 35px rgba(255,77,77,0.7);
+  .btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 20px 40px rgba(255,61,61,0.7);
   }
 
   .message {
-    margin-top: 24px;
-    font-size: 18px;
+    margin-top: 22px;
+    font-size: 17px;
     line-height: 1.5;
     opacity: 0;
     transition: opacity 0.8s ease;
   }
 
-  .show { opacity: 1; }
+  .show {
+    opacity: 1;
+  }
 
+  .santa {
+    width: 130px;
+    margin-top: 20px;
+  }
+
+  /* Snow */
   .snow {
     position: fixed;
     top: -10px;
@@ -95,59 +98,48 @@
   @keyframes fall {
     to { transform: translateY(110vh); }
   }
-
-  .footer-img {
-    margin-top: 18px;
-    width: 90px;
-  }
 </style>
 </head>
 
 <body>
 
 <div class="card">
-  <!-- Christmas Tree Image -->
   <img class="tree"
-    src="https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=300&q=80"
-    alt="Christmas Tree">
+    src="https://cdn-icons-png.flaticon.com/512/3076/3076126.png">
 
-  <h1>🎄 Merry Christmas 🎅</h1>
-  <h2>Special wishes for Kirti Sharma</h2>
+  <h1>🎄 Merry Christmas</h1>
+  <div class="subtitle">Special wishes for <b>Kirti Sharma</b></div>
 
-  <button onclick="wish()">Open Your Christmas Gift 🎁</button>
+  <button class="btn" onclick="openGift()">Open Your Christmas Gift 🎁</button>
 
   <div id="msg" class="message">
-    ❄️ Merry Christmas <b>Kirti Sharma</b> ❄️<br>
+    ❄️ Merry Christmas Kirti Sharma ❄️<br>
     May your life shine like Christmas lights,<br>
     your heart stay warm,<br>
-    and your smile sparkle always ✨💖
+    and your smile sparkle always ✨
   </div>
 
-  <!-- Santa Image -->
-  <img class="footer-img"
-    src="https://cdn-icons-png.flaticon.com/512/3076/3076129.png"
-    alt="Santa">
+  <img class="santa"
+    src="https://cdn-icons-png.flaticon.com/512/3076/3076129.png">
 </div>
 
-<!-- Christmas Music -->
 <audio id="music">
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">
 </audio>
 
 <script>
-  function wish() {
+  function openGift() {
     document.getElementById("msg").classList.add("show");
     document.getElementById("music").play();
   }
 
   // Snow effect
   for (let i = 0; i < 45; i++) {
-    let snow = document.createElement("div");
+    const snow = document.createElement("div");
     snow.className = "snow";
     snow.style.left = Math.random() * 100 + "vw";
     snow.style.animationDuration = (Math.random() * 5 + 5) + "s";
     snow.style.opacity = Math.random();
-    snow.style.transform = "scale(" + Math.random() + ")";
     document.body.appendChild(snow);
   }
 </script>
