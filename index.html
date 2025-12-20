@@ -1,81 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Merry Christmas Kirti 🎄</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      font-family: "Segoe UI", sans-serif;
-      color: white;
-    }
+<meta charset="UTF-8">
+<title>Merry Christmas Kirti 🎄</title>
 
-    .card {
-      background: rgba(255, 255, 255, 0.12);
-      padding: 40px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      width: 340px;
-    }
+<style>
+  * {
+    box-sizing: border-box;
+  }
 
-    h1 {
-      margin-bottom: 20px;
-      font-size: 28px;
-    }
+  body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at top, #1b2a4e, #0b0f1f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    overflow: hidden;
+  }
 
-    button {
-      padding: 12px 26px;
-      font-size: 16px;
-      border: none;
-      border-radius: 25px;
-      background: #e63946;
-      color: white;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+  .card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 45px 35px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    width: 360px;
+    animation: float 4s ease-in-out infinite;
+  }
 
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
 
-    .message {
-      margin-top: 22px;
-      font-size: 18px;
-      line-height: 1.4;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
+  h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
 
-    .show {
-      opacity: 1;
+  h2 {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-bottom: 25px;
+  }
+
+  button {
+    background: linear-gradient(135deg, #ff4d4d, #ff8c42);
+    border: none;
+    border-radius: 30px;
+    padding: 14px 30px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 10px 25px rgba(255,77,77,0.4);
+  }
+
+  button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 15px 30px rgba(255,77,77,0.6);
+  }
+
+  .message {
+    margin-top: 25px;
+    font-size: 18px;
+    line-height: 1.5;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+
+  .show {
+    opacity: 1;
+  }
+
+  .snow {
+    position: fixed;
+    top: -10px;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(110vh);
     }
-  </style>
+  }
+</style>
 </head>
+
 <body>
 
-  <div class="card">
-    <h1>🎄 Christmas Greeting 🎅</h1>
-    <button onclick="wish()">Click to Wish</button>
+<div class="card">
+  <h1>🎄 Merry Christmas 🎅</h1>
+  <h2>Special wish for Kirti Sharma</h2>
 
-    <div id="msg" class="message">
-      🎁 Merry Christmas <b>Kirti Sharma</b>! <br>
-      May your heart be warm, your smile bright,  
-      and your holidays full of love & magic ✨❄️
-    </div>
+  <button onclick="wish()">Click to Open Your Gift 🎁</button>
+
+  <div id="msg" class="message">
+    ❄️ Merry Christmas <b>Kirti Sharma</b> ❄️<br>
+    May your life glow like Christmas lights,<br>
+    your heart stay warm,<br>
+    and your dreams sparkle all year ✨💖
   </div>
+</div>
 
-  <script>
-    function wish() {
-      document.getElementById("msg").classList.add("show");
-    }
-  </script>
+<!-- Christmas Music -->
+<audio id="music">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  function wish() {
+    document.getElementById("msg").classList.add("show");
+    document.getElementById("music").play();
+  }
+
+  // Snow generator
+  for (let i = 0; i < 40; i++) {
+    let snow = document.createElement("div");
+    snow.className = "snow";
+    snow.style.left = Math.random() * 100 + "vw";
+    snow.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    snow.style.opacity = Math.random();
+    snow.style.transform = "scale(" + Math.random() + ")";
+    document.body.appendChild(snow);
+  }
+</script>
 
 </body>
 </html>
