@@ -5,9 +5,7 @@
 <title>Merry Christmas Kirti 🎄</title>
 
 <style>
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
 
   body {
     margin: 0;
@@ -22,35 +20,42 @@
   }
 
   .card {
-    background: linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+    background: linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05));
     backdrop-filter: blur(12px);
-    border-radius: 20px;
-    padding: 45px 35px;
+    border-radius: 22px;
+    padding: 40px 32px;
     text-align: center;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.45);
     width: 360px;
     animation: float 4s ease-in-out infinite;
+    z-index: 2;
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
+    0%,100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
+  }
+
+  .tree {
+    width: 120px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.4));
   }
 
   h1 {
     font-size: 30px;
-    margin-bottom: 10px;
+    margin: 8px 0;
   }
 
   h2 {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 400;
     opacity: 0.9;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
   }
 
   button {
-    background: linear-gradient(135deg, #ff4d4d, #ff8c42);
+    background: linear-gradient(135deg, #ff4d4d, #ffb703);
     border: none;
     border-radius: 30px;
     padding: 14px 30px;
@@ -58,25 +63,23 @@
     color: white;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 10px 25px rgba(255,77,77,0.4);
+    box-shadow: 0 10px 25px rgba(255,77,77,0.45);
   }
 
   button:hover {
     transform: scale(1.08);
-    box-shadow: 0 15px 30px rgba(255,77,77,0.6);
+    box-shadow: 0 15px 35px rgba(255,77,77,0.7);
   }
 
   .message {
-    margin-top: 25px;
+    margin-top: 24px;
     font-size: 18px;
     line-height: 1.5;
     opacity: 0;
     transition: opacity 0.8s ease;
   }
 
-  .show {
-    opacity: 1;
-  }
+  .show { opacity: 1; }
 
   .snow {
     position: fixed;
@@ -90,9 +93,12 @@
   }
 
   @keyframes fall {
-    to {
-      transform: translateY(110vh);
-    }
+    to { transform: translateY(110vh); }
+  }
+
+  .footer-img {
+    margin-top: 18px;
+    width: 90px;
   }
 </style>
 </head>
@@ -100,22 +106,32 @@
 <body>
 
 <div class="card">
-  <h1>🎄 Merry Christmas 🎅</h1>
-  <h2>Special wish for Kirti Sharma</h2>
+  <!-- Christmas Tree Image -->
+  <img class="tree"
+    src="https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=300&q=80"
+    alt="Christmas Tree">
 
-  <button onclick="wish()">Click to Open Your Gift 🎁</button>
+  <h1>🎄 Merry Christmas 🎅</h1>
+  <h2>Special wishes for Kirti Sharma</h2>
+
+  <button onclick="wish()">Open Your Christmas Gift 🎁</button>
 
   <div id="msg" class="message">
     ❄️ Merry Christmas <b>Kirti Sharma</b> ❄️<br>
-    May your life glow like Christmas lights,<br>
+    May your life shine like Christmas lights,<br>
     your heart stay warm,<br>
-    and your dreams sparkle all year ✨💖
+    and your smile sparkle always ✨💖
   </div>
+
+  <!-- Santa Image -->
+  <img class="footer-img"
+    src="https://cdn-icons-png.flaticon.com/512/3076/3076129.png"
+    alt="Santa">
 </div>
 
 <!-- Christmas Music -->
 <audio id="music">
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -124,8 +140,8 @@
     document.getElementById("music").play();
   }
 
-  // Snow generator
-  for (let i = 0; i < 40; i++) {
+  // Snow effect
+  for (let i = 0; i < 45; i++) {
     let snow = document.createElement("div");
     snow.className = "snow";
     snow.style.left = Math.random() * 100 + "vw";
