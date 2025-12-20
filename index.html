@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Merry Christmas Kirti 🎄</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: "Segoe UI", sans-serif;
+      color: white;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      width: 340px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    button {
+      padding: 12px 26px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      background: #e63946;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .message {
+      margin-top: 22px;
+      font-size: 18px;
+      line-height: 1.4;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>🎄 Christmas Greeting 🎅</h1>
+    <button onclick="wish()">Click to Wish</button>
+
+    <div id="msg" class="message">
+      🎁 Merry Christmas <b>Kirti Sharma</b>! <br>
+      May your heart be warm, your smile bright,  
+      and your holidays full of love & magic ✨❄️
+    </div>
+  </div>
+
+  <script>
+    function wish() {
+      document.getElementById("msg").classList.add("show");
+    }
+  </script>
+
+</body>
+</html>
