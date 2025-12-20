@@ -1,75 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Merry Christmas Kirti 🎄</title>
 
 <style>
-  * { box-sizing: border-box; }
+  * {
+    box-sizing: border-box;
+  }
 
   body {
     margin: 0;
     height: 100vh;
-    background: url("https://images.unsplash.com/photo-1548778052-311f5fa7b5a3?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
+    background: radial-gradient(circle at top, #1c2b4a, #0a0f1f);
+    font-family: "Segoe UI", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Segoe UI", sans-serif;
     overflow: hidden;
-  }
-
-  .card {
-    width: 380px;
-    background: rgba(15, 20, 45, 0.75);
-    backdrop-filter: blur(14px);
-    border-radius: 26px;
-    padding: 35px 28px 30px;
-    text-align: center;
     color: white;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.6);
-    position: relative;
   }
 
+  /* Glass Card */
+  .card {
+    position: relative;
+    width: 400px;
+    padding: 40px 30px 35px;
+    border-radius: 28px;
+    background: rgba(20, 30, 60, 0.7);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    text-align: center;
+    z-index: 2;
+  }
+
+  /* Tree */
   .tree {
-    width: 120px;
-    margin-top: -80px;
+    width: 150px;
+    margin-top: -110px;
     filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
   }
 
   h1 {
-    margin: 15px 0 6px;
-    font-size: 30px;
-    font-weight: 600;
-    color: #ffd166;
+    font-size: 34px;
+    margin: 10px 0;
+    color: #ffd36a;
+    letter-spacing: 1px;
   }
 
   .subtitle {
-    font-size: 16px;
-    opacity: 0.9;
+    font-size: 18px;
     margin-bottom: 22px;
+    opacity: 0.95;
   }
 
-  .btn {
-    background: linear-gradient(135deg, #ff3d3d, #ff9f1c);
+  /* Button */
+  .gift-btn {
+    background: linear-gradient(135deg, #ff2d2d, #ff9f1a);
     border: none;
-    border-radius: 35px;
-    padding: 15px 28px;
-    font-size: 17px;
+    border-radius: 40px;
+    padding: 16px 34px;
+    font-size: 18px;
     color: white;
     cursor: pointer;
-    box-shadow: 0 15px 30px rgba(255,61,61,0.5);
+    box-shadow: 0 18px 40px rgba(255,60,60,0.6);
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
-  .btn:hover {
-    transform: scale(1.07);
-    box-shadow: 0 20px 40px rgba(255,61,61,0.7);
+  .gift-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 25px 55px rgba(255,60,60,0.85);
   }
 
+  /* Message */
   .message {
-    margin-top: 22px;
-    font-size: 17px;
-    line-height: 1.5;
+    margin-top: 26px;
+    font-size: 18px;
+    line-height: 1.6;
     opacity: 0;
     transition: opacity 0.8s ease;
   }
@@ -78,9 +85,18 @@
     opacity: 1;
   }
 
+  .highlight {
+    font-size: 22px;
+    color: #aee6ff;
+    text-shadow: 0 0 10px rgba(174,230,255,0.8);
+    margin-bottom: 12px;
+  }
+
+  /* Santa */
   .santa {
-    width: 130px;
-    margin-top: 20px;
+    width: 150px;
+    margin-top: 22px;
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
   }
 
   /* Snow */
@@ -91,12 +107,14 @@
     height: 6px;
     background: white;
     border-radius: 50%;
-    opacity: 0.8;
+    opacity: 0.85;
     animation: fall linear infinite;
   }
 
   @keyframes fall {
-    to { transform: translateY(110vh); }
+    to {
+      transform: translateY(110vh);
+    }
   }
 </style>
 </head>
@@ -104,27 +122,36 @@
 <body>
 
 <div class="card">
-  <img class="tree"
-    src="https://cdn-icons-png.flaticon.com/512/3076/3076126.png">
 
-  <h1>🎄 Merry Christmas</h1>
+  <!-- Tree -->
+  <img class="tree"
+    src="https://images.unsplash.com/photo-1608889175250-c3b0c1665b3c?auto=format&fit=crop&w=400&q=80"
+    alt="Christmas Tree">
+
+  <h1>🎄 Merry Christmas 🎅</h1>
   <div class="subtitle">Special wishes for <b>Kirti Sharma</b></div>
 
-  <button class="btn" onclick="openGift()">Open Your Christmas Gift 🎁</button>
+  <button class="gift-btn" onclick="openGift()">
+    Open Your Christmas Gift 🎁
+  </button>
 
   <div id="msg" class="message">
-    ❄️ Merry Christmas Kirti Sharma ❄️<br>
+    <div class="highlight">❄️ Merry Christmas Kirti Sharma ❄️</div>
     May your life shine like Christmas lights,<br>
     your heart stay warm,<br>
     and your smile sparkle always ✨
   </div>
 
+  <!-- Santa -->
   <img class="santa"
-    src="https://cdn-icons-png.flaticon.com/512/3076/3076129.png">
+    src="https://cdn-icons-png.flaticon.com/512/3076/3076129.png"
+    alt="Santa">
+
 </div>
 
+<!-- Music -->
 <audio id="music">
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -133,13 +160,14 @@
     document.getElementById("music").play();
   }
 
-  // Snow effect
-  for (let i = 0; i < 45; i++) {
+  // Snow generator
+  for (let i = 0; i < 60; i++) {
     const snow = document.createElement("div");
     snow.className = "snow";
     snow.style.left = Math.random() * 100 + "vw";
-    snow.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    snow.style.animationDuration = (Math.random() * 6 + 4) + "s";
     snow.style.opacity = Math.random();
+    snow.style.transform = "scale(" + Math.random() + ")";
     document.body.appendChild(snow);
   }
 </script>
